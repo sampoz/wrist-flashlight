@@ -1,5 +1,5 @@
 // Wrist handlight 4 great awesomeness
-// Print revision 3
+// Print revision 4
 
 base_radius = 27;
 base_height = 7;
@@ -13,7 +13,7 @@ lilypad_peg_circumference = 41.5;
 
 rgb_pad_radius = 12;
 rgb_pad_offset = 11.5;
-rgb_pad_height = 3;
+rgb_pad_height = 4;
 
 resolution = 9;
 
@@ -29,7 +29,7 @@ difference(){
                     difference(){
                          cylinder(lilypad_radius + rgb_pad_height, 0, rgb_pad_radius);
                          translate([0,0,base_radius]){
-                              cylinder(rgb_pad_height, rgb_pad_radius-1, rgb_pad_radius-1);
+                              cylinder(rgb_pad_height, rgb_pad_radius-1.7, rgb_pad_radius-1);
                          }
 
                     }
