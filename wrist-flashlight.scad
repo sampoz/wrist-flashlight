@@ -1,19 +1,19 @@
 // Wrist handlight 4 great awesomeness
-// Print revision 2
+// Print revision 3
 
 base_radius = 27;
-base_height = 5;
+base_height = 7;
 lilypad_radius = 26;
-lilypad_heigth = 5;
+lilypad_heigth = 7;
 lilypad_offset_z = 1;
 lilypad_usb_radius = 5;
 lilypad_peg_radius = 1;
-lilypad_peg_height = 2.5;
-lilypad_peg_circumference = 41;
+lilypad_peg_height = 4;
+lilypad_peg_circumference = 41.5;
 
-rgb_pad_radius = 10.2;
-rgb_pad_offset = 10;
-rgb_pad_height = 1.5;
+rgb_pad_radius = 12;
+rgb_pad_offset = 11.5;
+rgb_pad_height = 3;
 
 resolution = 9;
 
@@ -67,11 +67,11 @@ difference(){
 
 
      // usb-via
-     translate([0, 0,lilypad_offset_z+10]){
+     translate([0, 0,lilypad_offset_z]){
           cylinder(lilypad_heigth, lilypad_radius, lilypad_radius);
      }
      rotate([-90]){
-          translate([0, -lilypad_heigth, lilypad_offset_z]){
+          translate([0, -lilypad_heigth+ lilypad_offset_z, lilypad_offset_z]){
                cylinder(lilypad_radius, 0, lilypad_usb_radius);
           }
      }
