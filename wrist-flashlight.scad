@@ -1,5 +1,5 @@
 // Wrist handlight 4 great awesomeness
-// Print revision 4
+// Print revision 5
 
 base_radius = 27;
 base_height = 7;
@@ -17,8 +17,9 @@ rgb_pad_height = 4;
 
 resolution = 9;
 
-magnet_diameter = 2;
-magnet_height = 0.5;
+magnet_diameter = 2.55;
+magnet_height = 0.2;
+magnet_height_spacing = 0.9;
 magnet_offset = 25;
 
 // rgb_pads
@@ -52,8 +53,18 @@ difference(){
      // base
      cylinder(base_height, base_radius, base_radius);
      // lilypad-via
+     union(){
      translate([0, 0,lilypad_offset_z]){
           cylinder(lilypad_heigth, lilypad_radius, lilypad_radius);
+
+     }
+     for(x = [0 : 1 : 1]){
+          for(y = [0 : 1 : 1]){
+               translate([-magnet_offset/2 + x*magnet_offset, -magnet_offset/2 + y*magnet_offset, -magnet_height + magnet_height_spacing]){
+                    cylinder(magnet_height*2, magnet_diameter, magnet_diameter);
+               }
+          }
+     }
 
      }
      // magnets
