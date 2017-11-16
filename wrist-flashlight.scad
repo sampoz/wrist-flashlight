@@ -1,15 +1,15 @@
 // Wrist handlight 4 great awesomeness
-// Print revision 5
+// Print revision 6
 
 base_radius = 27;
 base_height = 7;
 lilypad_radius = 26;
 lilypad_heigth = 7;
-lilypad_offset_z = 1;
+lilypad_offset_z = 1.5;
 lilypad_usb_radius = 5;
-lilypad_peg_radius = 1;
-lilypad_peg_height = 4;
-lilypad_peg_circumference = 41.5;
+lilypad_peg_radius = 1.2;
+lilypad_peg_height = 4.2;
+lilypad_peg_circumference = 41.7;
 
 rgb_pad_radius = 12;
 rgb_pad_offset = 11.5;
@@ -18,8 +18,8 @@ rgb_pad_height = 4;
 resolution = 9;
 
 magnet_diameter = 2.55;
-magnet_height = 0.2;
-magnet_height_spacing = 0.9;
+magnet_height = 0.4;
+magnet_height_spacing = 0.5;
 magnet_offset = 25;
 
 // rgb_pads
@@ -52,7 +52,7 @@ for(x = [0 : 1 : 1]){
 difference(){
      // base
      cylinder(base_height, base_radius, base_radius);
-     // lilypad-via
+     // lilypad-via + inner magnets
      union(){
      translate([0, 0,lilypad_offset_z]){
           cylinder(lilypad_heigth, lilypad_radius, lilypad_radius);
@@ -60,7 +60,7 @@ difference(){
      }
      for(x = [0 : 1 : 1]){
           for(y = [0 : 1 : 1]){
-               translate([-magnet_offset/2 + x*magnet_offset, -magnet_offset/2 + y*magnet_offset, -magnet_height + magnet_height_spacing]){
+               translate([-magnet_offset/2 + x*magnet_offset, -magnet_offset/2 + y*magnet_offset, magnet_height + magnet_height_spacing]){
                     cylinder(magnet_height*2, magnet_diameter, magnet_diameter);
                }
           }
