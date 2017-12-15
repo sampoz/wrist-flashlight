@@ -1,11 +1,11 @@
 // Wrist handlight 4 great awesomeness
-// Print revision 6
+// Print revision 7
 
 base_radius = 27;
-base_height = 7;
+base_height = 8;
 lilypad_radius = 26;
 lilypad_heigth = 7;
-lilypad_offset_z = 1.5;
+lilypad_offset_z = 1.7;
 lilypad_usb_radius = 5;
 lilypad_peg_radius = 1.2;
 lilypad_peg_height = 4.2;
@@ -17,8 +17,8 @@ rgb_pad_height = 4;
 
 resolution = 9;
 
-magnet_diameter = 2.55;
-magnet_height = 0.4;
+magnet_diameter = 5.05;
+magnet_height = 0.5;
 magnet_height_spacing = 0.5;
 magnet_offset = 25;
 
@@ -69,7 +69,8 @@ difference(){
      }
      // magnets
      for(x = [0 : 1 : 1]){
-          for(y = [0 : 1 : 1]){
+					// Off-start is to remove magnet holes from ventral side
+          for(y = [1 : 1 : 1]){
                translate([-magnet_offset/2 + x*magnet_offset, -magnet_offset/2 + y*magnet_offset, 0]){
                     cylinder(magnet_height, magnet_diameter, magnet_diameter);
                }
